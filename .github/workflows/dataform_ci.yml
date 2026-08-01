@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Dataform CLI
-        run: npm install -g @dataform/cli
+      # - name: Install Dataform CLI
+      #   run: npm install -g @dataform/cli
 
       - name: Install Project Dependencies
         run: dataform install
