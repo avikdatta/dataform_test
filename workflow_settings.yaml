@@ -1,4 +1,4 @@
-dataformCoreVersion:
+dataformCoreVersion: 3.0.61
 defaultProject: test
 defaultLocation: us-east-1
 defaultDataset: dataform
