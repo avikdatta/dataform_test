@@ -27,7 +27,7 @@ jobs:
       
       - name: Start BigQuery Emulator
         run: |
-          docker run -d -p 9050:9050 goccy/bigquery-emulator:latest --project=test-project
+          docker run -d -p 9050:9050 ghcr.io/goccy/bigquery-emulator:latest --project=test-project
           
       - name: Create Mock Credentials File
         run: |
