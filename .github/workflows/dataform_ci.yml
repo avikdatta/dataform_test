@@ -24,6 +24,22 @@ jobs:
 
       - name: Verify Project Compilation
         run: dataform compile
+      
+      - name: Start BigQuery Emulator
+        run: |
+          docker run -d -p 9050:9050 goccy/bigquery-emulator:latest --project=test-project
+          
+      - name: Create Mock Credentials File
+        run: |
+          cat <<EOF > .df-credentials.json
+          {
+            "projectId": "test-project",
+            "location": "US"
+          }
+          EOF
 
-      - name: Execute Unit Tests
+      - name: Execute Unit Tests against Local Emulator
+        env:
+          BIGQUERY_EMULATOR_HOST: "localhost:9050"
         run: dataform test
+
