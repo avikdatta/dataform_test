@@ -1,0 +1,32 @@
+name: Dataform CI Unit Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dataform CLI
+        run: npm install -g @dataform/cli
+
+      - name: Install Project Dependencies
+        run: dataform install
+
+      - name: Verify Project Compilation
+        run: dataform compile
+
+      - name: Execute Unit Tests
+        run: dataform test
