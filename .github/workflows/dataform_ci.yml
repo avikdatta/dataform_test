@@ -40,6 +40,6 @@ jobs:
 
       - name: Execute Unit Tests against Local Emulator
         env:
-          BIGQUERY_EMULATOR_HOST: "localhost:9050"
+          BIGQUERY_EMULATOR_HOST: "http://localhost:9050"
         run: dataform test
 
