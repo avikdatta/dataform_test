@@ -1,0 +1,12 @@
+config {
+    type: "view",
+    schema: "test3",
+    materialized: true
+}
+
+SELECT
+    DISTINCT drink_id,
+    drink_name,
+    drink_type
+FROM
+    ${ref("drinks")}

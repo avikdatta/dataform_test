@@ -1,0 +1,19 @@
+config {
+    type: "test",
+    dataset: {
+        schema: "test3",
+        name: "v_m_drinks",
+    }
+}
+
+input "drinks" {
+    SELECT 1 AS drink_id, "Latte" AS drink_name, "Coffee" AS drink_type, 150 AS calories, DATE("2024-01-01") AS date, 4.50 AS price
+    UNION ALL
+    SELECT 1, "Latte", "Coffee", 150, DATE("2024-01-02"), 4.50  -- duplicate drink_id/name/type, different date
+    UNION ALL
+    SELECT 2, "Espresso", "Coffee", 5, DATE("2024-01-01"), 3.00
+}
+
+SELECT 1 AS drink_id, "Latte" AS drink_name, "Coffee" AS drink_type
+UNION ALL
+SELECT 2, "Espresso", "Coffee"
