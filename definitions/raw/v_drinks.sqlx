@@ -1,5 +1,6 @@
 config {
-    type: "view"
+    type: "view",
+    schema: "test2"
 }
 
 SELECT

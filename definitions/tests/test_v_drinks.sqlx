@@ -1,6 +1,9 @@
 config {
     type: "test",
-    dataset: "v_drinks"  // name of your view's declaration
+    dataset: {
+        name: "v_drinks",
+        schema: "test2"
+    }
 }
 
 input "drinks" {
