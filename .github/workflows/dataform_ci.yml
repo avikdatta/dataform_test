@@ -64,13 +64,13 @@ jobs:
           bq mk --dataset test-project:test2
           bq mk --project_id=test-project raw_data
           bq load --project_id=test-project --source_format=NEWLINE_DELIMITED_JSON \
-            raw_data.ages ./definitions/test/fixtures/ages.json ./definitions/test/schemas/ages.json
+            raw_data.ages ./definitions/tests/fixtures/ages.json ./definitions/tests/schemas/ages.json
 
           bq load --project_id=test-project --source_format=NEWLINE_DELIMITED_JSON \
-            raw_data.drinks ./definitions/test/fixtures/drinks.json ./definitions/test/schemas/drinks.json
+            raw_data.drinks ./definitions/tests/fixtures/drinks.json ./definitions/tests/schemas/drinks.json
 
           bq load --project_id=test-project --source_format=NEWLINE_DELIMITED_JSON \
-            raw_data.meals ./definitions/test/fixtures/meals.json ./definitions/test/schemas/meals.json
+            raw_data.meals ./definitions/tests/fixtures/meals.json ./definitions/tests/schemas/meals.json
         
       - name: Execute Full Run against Local Emulator
         env:
