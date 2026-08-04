@@ -77,4 +77,4 @@ jobs:
       - name: Execute Full Run against Local Emulator
         env:
           BIGQUERY_EMULATOR_HOST: "http://localhost:9050"
-        run: dataform run --action v_drinks
+        run: dataform run --actions v_drinks

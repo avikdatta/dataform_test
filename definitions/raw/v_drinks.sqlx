@@ -1,6 +1,7 @@
 config {
     type: "view",
-    schema: "test2"
+    schema: "test2",
+    tags: ["drinks"]
 }
 
 SELECT
