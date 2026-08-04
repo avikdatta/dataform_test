@@ -60,12 +60,10 @@ jobs:
           CLOUDSDK_CORE_PROJECT: "test-project"
         run: |
           bq query --project_id=test-project --use_legacy_sql=false 'SELECT 1'
-          
-          cat <<EOF > .df-credentials.json
-          {
-            "projectId": "test-project",
-            "location": "US"
-          }
-          EOF
-          
-          dataform run
+          bq mk --dataset test-project:test
+          bq mk --dataset test-project:test2
+        
+      - name: Execute Full Run against Local Emulator
+        env:
+          BIGQUERY_EMULATOR_HOST: "http://localhost:9050"
+        run: dataform run
