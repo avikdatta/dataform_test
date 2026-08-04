@@ -64,30 +64,17 @@ jobs:
           bq mk --dataset test-project:test2
           bq mk --dataset test-project:test3
           bq mk --project_id=test-project raw_data
-          
-          bq query --project_id=test-project --use_legacy_sql=false \
-            'CREATE TABLE raw_data.ages (age INT64)'
 
           bq query --project_id=test-project --use_legacy_sql=false \
             'CREATE TABLE raw_data.drinks (drink_id INT64, drink_name STRING, drink_type STRING, calories INT64, date DATE, price FLOAT64)'
-
-          bq query --project_id=test-project --use_legacy_sql=false \
-            'CREATE TABLE raw_data.meals (meal_id INT64, meal_name STRING, meal_type STRING, calories INT64, date DATE, price FLOAT64, drink_id INT64)'
-
-          bq query --project_id=test-project --use_legacy_sql=false \
-            'INSERT INTO raw_data.ages (age) VALUES (25), (34), (45)'
 
           bq query --project_id=test-project --use_legacy_sql=false \
             'INSERT INTO raw_data.drinks (drink_id, drink_name, drink_type, calories, date, price) VALUES
               (1, "Cola", "soda", 140, "2024-01-01", 2.5),
               (2, "Orange Juice", "juice", 110, "2024-01-02", 3.0)'
 
-          bq query --project_id=test-project --use_legacy_sql=false \
-            'INSERT INTO raw_data.meals (meal_id, meal_name, meal_type, calories, date, price, drink_id) VALUES
-              (1, "Burger", "lunch", 800, "2024-01-01", 9.5, 1),
-              (2, "Salad", "dinner", 400, "2024-01-02", 7.0, 2)'
         
       - name: Execute Full Run against Local Emulator
         env:
           BIGQUERY_EMULATOR_HOST: "http://localhost:9050"
-        run: dataform run
+        run: dataform run --action v_drinks
