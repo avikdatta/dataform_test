@@ -1,0 +1,9 @@
+[
+  {"name": "meal_id", "type": "INT64", "mode": "NULLABLE"},
+  {"name": "meal_name", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "meal_type", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "calories", "type": "INT64", "mode": "NULLABLE"},
+  {"name": "date", "type": "DATE", "mode": "NULLABLE"},
+  {"name": "price", "type": "FLOAT64", "mode": "NULLABLE"},
+  {"name": "drink_id", "type": "INT64", "mode": "NULLABLE"}
+]

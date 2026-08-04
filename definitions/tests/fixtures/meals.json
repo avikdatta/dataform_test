@@ -1,0 +1,2 @@
+{"meal_id": 1, "meal_name": "Burger", "meal_type": "lunch", "calories": 800, "date": "2024-01-01", "price": 9.5, "drink_id": 1}
+{"meal_id": 2, "meal_name": "Salad", "meal_type": "dinner", "calories": 400, "date": "2024-01-02", "price": 7.0, "drink_id": 2}
