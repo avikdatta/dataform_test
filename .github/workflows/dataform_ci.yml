@@ -56,7 +56,7 @@ jobs:
 
       - name: Run bq against emulator
         env:
-          CLOUDSDK_AUTH_TOKEN: "fake_token"
+          CLOUDSDK_AUTH_ACCESS_TOKEN: "fake_token"
           CLOUDSDK_CORE_PROJECT: "test-project"
         run: |
           bq query --project_id=test-project --use_legacy_sql=false 'SELECT 1'
